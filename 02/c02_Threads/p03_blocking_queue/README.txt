@@ -1,5 +1,9 @@
 Task:
 
+REKURZIVNO OBICI SVE DATOTEKE, I GDE SE POJAVI KLJUCNA REC TREBAMO DA ISPISEMO
+
+THREAD TOOL PATTERN
+
 The user enters a directory and a keyword. The program starts recursive file search from given directory and for each
 file it finds it starts the searching the found file for given keyword. For efficiency reasons, it is not a good idea
 to do this in a single thread by searching the directory and placing the found files in a list and then search them later

@@ -9,3 +9,14 @@
 
 * KATANCI SU NAJPRIMITIVNIJI, ALI SE NE MORAJU RADITI. POSTOJE DRUGI NACINI NA KOJE MOZEMO SINHRONIZOVATI
   PODATKE
+
+* 
+* // NAPRAVITI I STARTOVATI NIT KOJA POPUNJAVA BLOKIRAJUCI RED SVIM PUTANJAMA
+* // STARTOVATI SVIH THREAD_NUM RADNICKIH NITI
+
+* Files.is 
+* Path 
+* Paths 
+
+* Files.readAllLines(tekstualni_dokument) = vracaju se sve procitane linije
+* DirectoryStream = vraca kolekciju putanja

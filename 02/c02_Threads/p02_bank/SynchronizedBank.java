@@ -26,11 +26,20 @@ final class SynchronizedBank implements IBank {
         is a syntax error. Synchronizing constructors doesn't make sense, because only the thread that
         creates an object should have access to it while it is being constructed.
      */
+
+    // sinhronizacija na nekom visem nivou
+    // bice sinhronizovan medju svim instancama niti
+    //
     @Override
     public synchronized void transfer(int from, int to, int amount) {
         // We want to wait here, as in the previous example. But now we do not have a condition object to wait for.
         // So what we do here, is use the wait() method defined in the Object class (which is the base
         // for all classes). wait() blocks until a signal is received (we will send it via notifyAll() method)
+
+        /*
+        *   NE MORAMO SVE DA STAVIMO U TRANSFORM
+        * */
+
         while (this.accounts[from] < amount) {
             try {
                 this.wait();
@@ -51,6 +60,17 @@ final class SynchronizedBank implements IBank {
 
     // There is no reason to make the entire method synchronized, we can
     // use a synchronized block as follows
+
+    /*
+    *   SINHRONIZUJ MI OVAJ DEO KODA, ZA OVAJ OBJEKAT
+    *
+    *   PROBLEM: getTotalBalance = IMAMO NESTO STO NIJE SINHRONIZOVANO
+    *   ZANIMA NAS KAKAV JE PRESEK STANJA
+    *
+    *   ALTERNATIVA: UVEDEMO DODATNU PROMENLJIVU KOJA CE ZAMENITI getTotalBalance
+    *
+    *   BILO JE NA ISPITU: ISPISI DA LI SU SINHRONIZOVANI; NIJE ZAGARANTOVANO U JAVI
+    * */
     public void transferAlternate(int from, int to, int amount) {
 		int totalBalance;
         synchronized (this) {

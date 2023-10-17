@@ -7,10 +7,17 @@ import java.util.concurrent.ArrayBlockingQueue;
 import java.util.concurrent.BlockingQueue;
 
 final class BlockingQueueMain {
-    private static final int FILE_QUEUE_SIZE = 10;
-    private static final int THREADS_NUM = 5;
+    private static final int FILE_QUEUE_SIZE = 10; // OGRANICENJE STRUKTURE
+    private static final int THREADS_NUM = 5; // OGRANICENJE BROJA NITI
 
     public static void main(String[] args) {
+        // NAPRAVITI BLOKIRAJUCI RED
+
+        /*
+        Path base = Paths.get("/home/natasa/Desktop/Fakultet/4_god/7_sem/rm/02/c02_Threads/p02_bank");
+        BlockingQueue<Path> queue = new ArrayBlockingQueue<>(FILE_QUEUE_SIZE);
+        FileTreeWalkerRunnable ftw = new FileTreeWalkerRunnable(base, queue);
+        */
 
         // Scan user input for starting directory and keyword to search for
         Scanner sc = new Scanner(System.in);
@@ -41,6 +48,7 @@ final class BlockingQueueMain {
         new Thread(ftw).start();
 
         // Worker threads
+        /* STARTUJEMO NII */
         for (int i = 0; i < THREADS_NUM; i++)
             new Thread(new SearchFileRunnable(fileQueue, keyword)).start();
     }
